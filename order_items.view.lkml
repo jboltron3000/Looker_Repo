@@ -36,11 +36,6 @@ view: order_items {
     sql: ${TABLE}.sale_price ;;
   }
 
-  dimension: refund_total {
-    type:  number
-    value_format_name: usd
-    sql: ${TABLE}.sale_price ;;
-}
   dimension: gross_margin {
     type: number
     value_format_name: decimal_2
@@ -77,6 +72,12 @@ view: order_items {
     sql: ${sale_price} ;;
     value_format_name: usd
     drill_fields: [detail*]
+  }
+
+  measure: refund_total {
+    type:  number
+    value_format_name: usd
+    sql: ${TABLE}.sale_price * ${products.count} ;;
   }
 
   measure: average_sale_price {
