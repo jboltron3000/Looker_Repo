@@ -36,6 +36,11 @@ view: order_items {
     sql: ${TABLE}.sale_price ;;
   }
 
+  dimension: refund_total {
+    type:  number
+    value_format_name: usd
+    sql: ${TABLE}.sale_price ;;
+}
   dimension: gross_margin {
     type: number
     value_format_name: decimal_2
