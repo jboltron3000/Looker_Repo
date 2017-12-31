@@ -55,11 +55,11 @@ view: users_orders_facts {
 
   dimension: loyalty_rank{
     type: string
-    sql:  IF ${loyalty_num} < 5000 THEN 'None'
-          IF ${loyalty_num} < 10000 THEN 'Bronze'
-          IF ${loyalty_num} < 13000 THEN 'Silver'
-          IF ${loyalty_num} < 15000 THEN 'Gold'
-          IF ${loyalty_num} < 17000 THEN 'Diamond'
+    sql:  WHEN ${loyalty_num} < 5000 THEN 'None'
+          WHEN ${loyalty_num} < 10000 THEN 'Bronze'
+          WHEN ${loyalty_num} < 13000 THEN 'Silver'
+          WHEN ${loyalty_num} < 15000 THEN 'Gold'
+          WHEN ${loyalty_num} < 17000 THEN 'Diamond'
           ELSE 'Platinum';;
   }
 
