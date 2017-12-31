@@ -41,6 +41,11 @@ view: users_orders_facts {
     sql: ${lifetime_orders} ;;
   }
 
+  measure: loyaltynum {
+    type: number
+    sql: ${lifetime_orders} * ${days_as_customer};;
+  }
+
   dimension: repeat_customer {
     type: yesno
     sql: ${lifetime_orders} > 1 ;;
