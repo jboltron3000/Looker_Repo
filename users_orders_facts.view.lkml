@@ -54,10 +54,10 @@ view: users_orders_facts {
   }
 
   dimension: loyalty_rank{
-    type: string
     sql:  CASE
           WHEN ${loyalty_num} < 5000 THEN 'None'
-          ELSE 'Platinum';;
+          ELSE 'Platinum'
+          END;;
   }
 
   dimension: repeat_customer {
