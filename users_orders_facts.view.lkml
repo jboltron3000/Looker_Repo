@@ -49,7 +49,7 @@ view: users_orders_facts {
   dimension: loyalty_rank {
     type: tier
     style: integer
-    tiers: [0, 10000, 13000, 15000, 17000, 20000]
+    tiers: [0, 5000, 10000, 13000, 15000, 17000, 20000]
     sql: ${loyaltynum} ;;
   }
 
