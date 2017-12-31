@@ -27,6 +27,11 @@ view: users_orders_facts {
     sql: ${TABLE}.lifetime_orders ;;
   }
 
+  measure: lifetime_order_num {
+    type: number
+    sql: ${lifetime_orders};;
+  }
+
   measure: average_lifetime_orders {
     type: average
     value_format_name: decimal_1
