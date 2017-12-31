@@ -41,16 +41,26 @@ view: users_orders_facts {
     sql: ${lifetime_orders} ;;
   }
 
-  dimension: loyaltynum {
+  dimension: loyalty_num {
     type: number
     sql: ${lifetime_orders} * ${days_as_customer};;
   }
 
-  dimension: loyalty_rank {
+  dimension: loyalty_num_tier {
     type: tier
     style: integer
     tiers: [0, 5000, 10000, 13000, 15000, 17000, 20000]
-    sql: ${loyaltynum} ;;
+    sql: ${loyalty_num} ;;
+  }
+
+  dimension: loyalty_rank{
+    type: string
+    sql:  IF ${loyalty_num} < 5000 THEN 'None'
+          IF ${loyalty_num} < 10000 THEN 'Bronze'
+          IF ${loyalty_num} < 13000 THEN 'Silver'
+          IF ${loyalty_num} < 15000 THEN 'Gold'
+          IF ${loyalty_num} < 17000 THEN 'Diamond'
+          ELSE 'Platinum';;
   }
 
   dimension: repeat_customer {
