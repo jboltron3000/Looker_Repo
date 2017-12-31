@@ -55,7 +55,8 @@ view: users_orders_facts {
 
   dimension: loyalty_rank{
     type: string
-    sql:  WHEN ${loyalty_num} < 5000 THEN 'None'
+    sql:  CASE
+          WHEN ${loyalty_num} < 5000 THEN 'None'
           ELSE 'Platinum';;
   }
 
