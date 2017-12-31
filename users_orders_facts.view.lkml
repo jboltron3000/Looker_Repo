@@ -56,7 +56,12 @@ view: users_orders_facts {
   dimension: loyalty_rank{
     sql:  CASE
           WHEN ${loyalty_num} < 5000 THEN 'None'
-          ELSE 'Platinum'
+          WHEN ${loyalty_num} < 10000 THEN 'Bronze'
+          WHEN ${loyalty_num} < 13000 THEN 'Silver'
+          WHEN ${loyalty_num} < 15000 THEN 'Gold'
+          WHEN ${loyalty_num} < 17000 THEN 'Diamond'
+          WHEN ${loyalty_num} < 20000 THEN 'Platinum'
+          ELSE 'Double Platinum'
           END;;
   }
 
