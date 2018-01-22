@@ -133,6 +133,12 @@ view: products {
     list_field: item_name
   }
 
+  measure: retail_price_total{
+    type: sum
+    sql:  ${retail_price} ;;
+    value_format_name: usd_0
+  }
+
   # SETS #
 
   set: detail {
